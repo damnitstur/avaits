@@ -1,0 +1,256 @@
+:root{
+--warna-dasar : linear-gradient(to left, #ec2a85, #30125c);
+--warna-dasar-h : linear-gradient(to right, #ec2a85, #30125c);
+--bg1 :#421184;
+--sec :#ccdbe3;
+--sec-h :#95aab6;
+--sec-t: #546983;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+font-family: 'Poppins', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+h1, h2, h3, h4, h5, h6, p, button, input, label, ul, li {
+    font-family: 'Poppins', sans-serif;
+}
+form {
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 20px;
+  position: relative;
+}
+.custom-file-label {
+  display: inline-block;
+  padding: 10px 20px;
+  background:var(--sec);
+  color:var(--sec-t);
+  border-radius: 30px;
+  font-size: 14px;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.custom-file-label:hover {
+background:var(--sec-h);
+}
+
+#fileName {
+  margin-left: 10px;
+  font-size: 12px;
+  color: #333;
+}
+.heurey{
+  font-size: 12px;
+  color: #333;
+}
+
+.overlay {
+      display: none; /* Awalnya disembunyikan */
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      text-align: center;
+    }
+
+    .overlay-content {
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      max-width: 300px;
+      width: 100%;
+    }
+
+    .overlay-content p {
+      font-size: 46px;
+      margin-bottom: 20px;
+      font-weight: 200;
+      text-align: center;
+      color: #fff;
+    }
+
+    .overlay-content button {
+      padding: 10px;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      display: none; 
+width: 100%;
+    }
+    .overlay-content button:hover {
+      background-color: black;
+    }
+
+#closeOverlay{
+  align-content: center;
+}
+
+
+
+/* Custom styling for the label */
+.custom-file-label {
+  display: inline-block;
+  padding: 10px 20px;
+  background:var(--sec);
+  color:var(--sec-t);
+  border-radius: 30px;
+  font-size: 14px;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.custom-file-label:hover {
+background:var(--sec-h);
+}
+
+/* Styling for the file name display */
+#fileName {
+  margin-left: 10px;
+  font-size: 12px;
+  color: #333;
+}
+.heurey{
+  font-size: 12px;
+  color: #333;
+}
+
+/* Custom Radio Buttons */
+.radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 10px 0;
+}
+
+.radio-label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.radio-label input[type="radio"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 2px solid #005563;
+  border-radius: 50%;
+  margin-right: 10px;
+  outline: none;
+  cursor: pointer;
+  transition: background-color 0.2s, border-color 0.2s;
+}
+
+.radio-label input[type="radio"]:checked {
+  background-color: #005563;
+  border-color: #005563;
+}
+
+.radio-label input[type="radio"]:checked::before {
+  content: "";
+  display: block;
+  width: 10px;
+  height: 10px;
+  background-color: white;
+  border-radius: 50%;
+  margin: auto;
+}
+
+#borderSelection{
+display: block;
+height: 45px;
+}
+input[type="file"], input[type="text"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  width: 100%;
+  transition: border-color 0.3s;
+}
+
+input[type="text"]:focus {
+  border-color: #005563;
+  outline: none;
+}
+
+input[type="radio"] {
+  margin-right: 10px;
+}
+button {
+  padding: 10px;
+  background:var(--warna-dasar);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+  text-align: center;
+}
+
+button:hover {
+  background:var(--warna-dasar-h);
+}
+
+#nameSuggestions {
+  border: 1px solid #ccc;
+  display: none;
+  position: relative;
+  background-color: #00424a;
+  max-height: 150px;
+  overflow-y: auto;
+  list-style-type: none;
+  color :#fff;
+  width: 100%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  top: calc(100% + 5px);
+  border-radius: 9px;
+  box-sizing: border-box;
+}
+
+#nameSuggestions li {
+  padding: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+#nameSuggestions li:hover {
+  background-color: #f0f0f0;
+  color: black;
+}
+
+canvas {
+  max-width: 100%;
+  height: auto;
+  margin-top: 20px;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+}

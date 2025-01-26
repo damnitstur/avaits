@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="/avatar/css/style.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>AVA ITS</title>
+  </head>
+  <body>
+<form id="uploadForm">
+  <div></div><br>
+    <input type="file" id="photo" accept="image/*" style="display: none;" />
+  <label for="photo" class="custom-file-label">Upload foto jelek mu itu disini</label>
+  <span id="fileName">*fotonya upload dulu!</span>
+  <label for="nameSearch">Cari Nama mu:</label>
+  <input type="text" id="nameSearch" placeholder="Type to search..." autocomplete="off" />
+  <ul id="nameSuggestions"></ul>
+  <div class="radio-group">
+    <label>Choose Background Color:</label>
+    <span class="heurey">*Memangnya second choice bisa milih?</span>
+    <label class="radio-label">
+      <input type="radio" id="color1" name="bgColor" value="#1a8c7d" checked /> dark teal
+    </label>
+    <label class="radio-label">
+      <input type="radio" id="color4" name="bgColor" value="#411183" /> dark purple
+    </label>
+    <label class="radio-label">
+      <input type="radio" id="color3" name="bgColor" value="#ee2a85" /> pink
+    </label>
+    <label class="radio-label">
+      <input type="radio" id="color2" name="bgColor" value="#00000" /> hideung
+    </label>
+    </div>
+  <label for="borderSelection">Pilih Template:</label>
+  <select id="borderSelection">
+    <option value="border1.png">Border 1</option>
+    <option value="border2.png">Border 2</option>
+    <option value="border3.png">Border 3</option>
+  </select>
+  <button type="submit">Generate Avatar</button>
+</form>
+<button id="downloadBtn">Download Gambar</button>
+<div id="welcomeOverlay" class="overlay">
+  <div class="overlay-content">
+    <p id="welcomeMessage">Welcome, User!</p>
+    <button id="closeOverlay">Close</button>
+  </div>
+</div>
+    <svg id="textBackground" width="150" height="40" xmlns="http://www.w3.org/2000/svg"style="display: none">
+      <rect id="backgroundRect"x="0"y="0"width="150"height="40"rx="20"ry="20"fill="#005563"/>
+      <text id="textElement"x="50%"y="50%"dominant-baseline="central"text-anchor="middle"fill="white"font-family="Poppins"font-weight="bold"font-size="24px"></text>
+    </svg>
+    <canvas id="avatarCanvas"width="1100"height="1100"></canvas>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+<script>
+  const csvUrl = "/avatar/assets/names.csv";
+function loadNamesFromCSV() {
+  Papa.parse(csvUrl, {
+    download: true,
+    header: true,
+    complete: function (results) {
+      console.log(results);
+      names = results.data.map((row) => row.name).filter(Boolean);
+    },
+    error: function (error) {
+      console.error("Gagal memuat CSV:", error);
+    },
+  });
+}
+
+window.onload = loadNamesFromCSV;
+</script>
+<script src="/avatar/js/tur.js?=v1.4">
+</script>
+</body>
+</html>
